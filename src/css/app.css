@@ -1,0 +1,11 @@
+@import 'normalize.css';
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: salmon;
+  color: white;
+  font-family: monospace;
+}
