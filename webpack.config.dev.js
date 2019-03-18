@@ -18,7 +18,7 @@ const config = {
   entry: entryPaths,
   devtool: 'inline-source-map',
   devServer: {
-    contentBase: resolve(__dirname, 'build'),
+    contentBase: resolve(__dirname, 'public'),
     inline: true,
     publicPath: '/',
     port: 8080,
