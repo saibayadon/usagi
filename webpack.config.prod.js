@@ -20,6 +20,7 @@ const config = {
   entry: entryPaths,
   output: {
     path: buildPath,
+    publicPath: '/',
     filename: 'js/[name].js',
     chunkFilename: 'js/vendor.js',
   },
