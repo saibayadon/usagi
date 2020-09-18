@@ -7,7 +7,7 @@ const entries = ['index', 'about'];
 // Paths + Entry Map.
 const buildPath = path.resolve(__dirname, 'build');
 const entryPaths = entries
-  .map(entry => [entry, path.resolve(__dirname, 'src/js', `${entry}.js`)])
+  .map((entry) => [entry, path.resolve(__dirname, 'src/js', `${entry}.js`)])
   .reduce((obj, { 0: key, 1: val }) => Object.assign(obj, { [key]: val }), {});
 
 // Webpack Plugins
@@ -77,18 +77,20 @@ const config = {
     },
   },
   plugins: [
-    new CopyWebpackPlugin([
-      {
-        from: 'public/',
-        to: '[path][name].[ext]',
-      },
-    ]),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: 'public/',
+          to: '[path][name].[ext]',
+        },
+      ],
+    }),
     new MiniCssExtractPlugin({
       filename: 'css/[name].css',
       chunkFilename: 'css/[id].css',
     }),
     ...entries.map(
-      entry =>
+      (entry) =>
         new HtmlWebpackPlugin({
           inject: true,
           template: `./src/${entry}.html`,

@@ -6,7 +6,7 @@ Built to be able to write simple pages that aren't necesarily single page apps.
 (And yeah, you could use Gatsby, Vuepress or whatever but ¯\\\_(ツ)\_/¯)
 
 ### Defaults
-- **Babel 7** (`preset-env` set to ">2%, last 1 edge version, last 2 safari version, not ie 11, not op_mini all").
+- **Babel 7.11** (`preset-env` set to ">2%, last 1 edge version, last 2 safari version, not ie 11, not op_mini all").
 - **PostCSS** (CSS Modules + CSSNano)
 
 ### Entries
