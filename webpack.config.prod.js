@@ -17,6 +17,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 const config = {
+  mode: 'production',
   entry: entryPaths,
   output: {
     path: buildPath,
@@ -61,11 +62,7 @@ const config = {
       },
       {
         exclude: [/\.html$/, /\.(js|jsx)$/, /\.css$/, /\.json$/],
-        loader: 'url-loader',
-        options: {
-          limit: 2000,
-          name: 'assets/[hash:8].[ext]',
-        },
+        type: 'asset/resource',
       },
     ],
   },

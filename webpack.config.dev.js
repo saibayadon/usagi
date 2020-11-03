@@ -1,3 +1,5 @@
+process.traceDeprecation = true;
+
 // Require
 const { resolve } = require('path');
 
@@ -13,16 +15,16 @@ const entryPaths = entries
 // Webpack Plugins
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
+const { WebpackPluginServe } = require('webpack-plugin-serve');
 
 const config = {
-  entry: entryPaths,
-  devtool: 'inline-source-map',
-  devServer: {
-    contentBase: resolve(__dirname, 'public'),
-    inline: true,
-    publicPath: '/',
-    port: 8080,
+  mode: 'development',
+  entry: {
+    ...entryPaths,
+    server: 'webpack-plugin-serve/client',
   },
+  devtool: 'inline-source-map',
   output: {
     path: buildPath,
     filename: 'js/[name].js',
@@ -61,22 +63,13 @@ const config = {
         ],
       },
       {
-        enforce: 'pre',
-        test: /\.js$/,
-        exclude: /(node_modules|bower_components)/,
-        loader: 'eslint-loader',
-      },
-      {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
         loader: 'babel-loader',
       },
       {
         exclude: [/\.html$/, /\.(js|jsx)$/, /\.css$/, /\.json$/],
-        loader: 'url-loader',
-        options: {
-          name: 'assets/[hash:8].[ext]',
-        },
+        type: 'asset/inline',
       },
     ],
   },
@@ -88,6 +81,14 @@ const config = {
     },
   },
   plugins: [
+    new WebpackPluginServe({
+      port: 3000,
+      static: buildPath,
+    }),
+    new ESLintPlugin({
+      cache: true,
+      files: './src'
+    }),
     new CopyWebpackPlugin({
       patterns: [
         {
@@ -106,6 +107,7 @@ const config = {
         }),
     ),
   ],
+  watch: true,
 };
 
 module.exports = config;
