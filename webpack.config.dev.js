@@ -87,7 +87,7 @@ const config = {
     }),
     new ESLintPlugin({
       cache: true,
-      files: './src'
+      files: './src',
     }),
     new CopyWebpackPlugin({
       patterns: [
