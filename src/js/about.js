@@ -1,5 +1,5 @@
 // Global Styles
 import '../css/app.css';
 
-// Log class names.
+// Do some stuff.
 document.querySelector('#root').innerHTML = '<b>About</b>';
