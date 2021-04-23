@@ -61,7 +61,7 @@ const config = {
         loader: 'babel-loader',
       },
       {
-        exclude: [/\.html$/, /\.(js|jsx)$/, /\.css$/, /\.json$/],
+        exclude: [/(^|\.(svg|css|json|js|jsx|ts|tsx|html))$/],
         type: 'asset/resource',
       },
     ],
@@ -78,7 +78,7 @@ const config = {
       patterns: [
         {
           from: 'public/',
-          to: '[path][name].[ext]',
+          to: '[path][name][ext]',
         },
       ],
     }),
