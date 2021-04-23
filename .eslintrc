@@ -1,7 +1,6 @@
 {
   "extends": [
     "airbnb/base",
-    "prettier",
     "plugin:prettier/recommended",
     "plugin:import/errors"
   ],
@@ -23,6 +22,7 @@
     "strict": [0, "global"],
     "func-names": [2, "never"],
     "global-require": 0,
-    "func-style": [2, "expression", { "allowArrowFunctions": true }]
+    "func-style": [2, "expression", { "allowArrowFunctions": true }],
+    "prettier/prettier": "error"
   }
 }
