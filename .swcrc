@@ -1,0 +1,12 @@
+{
+  "env": {
+    "targets": ">2%, Firefox ESR, not dead"
+  },
+  "minify": true,
+  "jsc": {
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "baseUrl": "."
+  }
+}

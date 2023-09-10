@@ -1,5 +1,3 @@
-process.traceDeprecation = true;
-
 // Require
 const { resolve } = require('path');
 
@@ -65,7 +63,7 @@ const config = {
       {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
-        loader: 'babel-loader',
+        loader: 'swc-loader',
       },
       {
         exclude: [/(^|\.(svg|css|json|js|jsx|ts|tsx|html))$/],
